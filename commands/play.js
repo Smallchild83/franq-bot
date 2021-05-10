@@ -25,7 +25,14 @@ module.exports = {
         const video = await videoFinder(args.join(' '));
 
         if(video){
-            const stream = ytdl(video.url, {filter: 'audioonly'});
+            const stream = ytdl(song.url, {
+                filter: 'audioonly',
+                quality: 'highestaudio',
+                dlChunkSize: '0',
+                highWaterMark: 1 << 25,
+            }).on('error', err => {
+                console.log(err);
+            });
             connection.play(stream, {seek: 0, volume: 1})
             .on('finish', () =>{
                 voiceChannel.leave();
