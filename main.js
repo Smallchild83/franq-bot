@@ -4,9 +4,12 @@ const client = new Discord.Client();
 
 const config = require('./config.json')
 
-const fs = require (`fs`);
+const fs = require(`fs`);
+
+var prefix = config.prefix;
 
 client.commands = new Discord.Collection();
+
 
 const commandFiles = fs.readdirSync(`./commands`).filter(file => file.endsWith(`.js`))
 for(const file of commandFiles){
@@ -19,9 +22,9 @@ client.once(`ready`, () => {
     console.log(`ello govener, im online now :D`)
 });
 
-client.on (`message`, message => {
-    if(!message.content.startsWith(prefix) || message.author.bot ) return;
+client.on(`message`, message => {
     if (prefix === null) prefix = config.prefix;
+    if(!message.content.startsWith(prefix) || message.author.bot ) return;
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
