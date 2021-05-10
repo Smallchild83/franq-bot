@@ -11,7 +11,7 @@ module.exports = {
         const permissions = voiceChannel.permissionsFor(message.client.user);
         if (!permissions.has(`CONNECT`)) return message.channel.send(`weakling you aint aloud to do this :p`);
         if (!permissions.has(`SPEAK`)) return message.channel.send(`weakling you aint aloud to do this :p`);
-        if (!args.length) return message.channel.send(`boi i need the 2nd arg`)
+        if (!args.length) return message.channel.send(`pick a vid lol`)
     
         const connection = await voiceChannel.join();
 
@@ -26,7 +26,7 @@ module.exports = {
 
         if(video){
             const stream = ytdl(video.url, {filter: 'audioonly'});
-            connection.play(stream, {seek: 100, volume: 1})
+            connection.play(stream, {seek: 0, volume: 1})
             .on('finish', () =>{
                 voiceChannel.leave();
             });
