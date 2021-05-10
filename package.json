@@ -1,0 +1,20 @@
+{
+  "name": "op-music-bot",
+  "version": "1.0.0",
+  "description": "same",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "smallchild83.3",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/opus": "^0.5.0",
+    "args": "^5.0.1",
+    "discord.js": "^12.5.3",
+    "ffmpeg-static": "^4.3.0",
+    "python": "^0.0.4",
+    "yt-search": "^2.8.0",
+    "ytdl-core": "^4.7.0"
+  }
+}
