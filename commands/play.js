@@ -25,11 +25,9 @@ module.exports = {
         const video = await videoFinder(args.join(' '));
 
         if(video){
-             const stream = ytdl(song.url, {
+             const stream = ytdl(song, {
                 filter: 'audioonly',
                 quality: 'highestaudio',
-                dlChunkSize: '0',
-                highWaterMark: 1 << 25,
             }).on('error', err => {
                 console.log(err);
             });
