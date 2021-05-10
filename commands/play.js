@@ -25,7 +25,7 @@ module.exports = {
         const video = await videoFinder(args.join(' '));
 
         if(video){
-             const stream = ytdl(song, {
+             const stream = ytdl(video.url, {
                 filter: 'audioonly',
                 quality: 'highestaudio',
             }).on('error', err => {
